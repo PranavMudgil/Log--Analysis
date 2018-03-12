@@ -1,5 +1,4 @@
 import psycopg2
-import bleach
 
 
 # database variable globally declared
@@ -19,10 +18,10 @@ query1 = """select articles.title as Articles,count(*)
             limit 3"""
 # Second query
 query2 = """select authors.name as Author,count(*) as Views
-            from articles,log,authors where articles.author=authors.id
-            and log.path like concat('%',articles.slug,'%') and
-            log.status like '%200%' group by authors.name,log.path order
-            by log.path desc limit 3"""
+            from log,authors,articles where path like
+            concat('%',articles.slug,'%') and authors.id=articles.author
+            and log.status like '%200 OK%' group by authors.name order by
+            Views desc ;"""
 # Third query
 query3 = "select * from error_view where Error_Percentage > 1 "
 
