@@ -28,7 +28,9 @@ query3 = """SELECT * FROM error_view WHERE Error_Percentage > 1 """
 
 
 def answer_query(query):
-    """Connects to database ,intialize a cursor ,executes query and returns all rows fetched"""
+	"""Connects to database ,intialize a cursor
+	executes query and returns all rows fetched
+	"""
     # connecting to database
     db = psycopg2.connect(database=DBNAME)
     # Initiating cursor
