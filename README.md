@@ -39,14 +39,14 @@ Use ```psql -d news``` to connect to database.
 
 ### Create view error_view using:
  ```
- CREATE 
+ CREATE OR REPLACE
     VIEW error_view 
       AS 
       SELECT date(time) 
         AS Date,round(sum(case status when '200 OK' THEN 0 else 1 end)*100.0/count(status),1) 
         AS Error_Percentage 
       FROM log GROUP BY 
-        Date,status 
+        Date 
       ORDER BY 
         Error_Percentage 
       DESC;
