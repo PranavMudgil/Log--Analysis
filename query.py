@@ -31,7 +31,7 @@ def answer_query(query):
 	"""Connects to database ,intialize a cursor
 	executes query and returns all rows fetched
 	"""
-    # connecting to database
+	# connecting to database
     db = psycopg2.connect(database=DBNAME)
     # Initiating cursor
     c = db.cursor()
