@@ -59,4 +59,6 @@ Error_Percentage    |float
 
 ### Running the queries:
 From the vagrant directory inside the _virtual machine_,run _logs.py_ using:
+
 ``` $ python3 logs.py ```
+
